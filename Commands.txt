@@ -1,0 +1,18 @@
+gcloud app deploy --version=v1
+gcloud app browse --version v1 --service=my-first-service
+gcloud app deploy --version=v2 --no-promote
+gcloud app deploy --version v3 --stop-previous-version
+gcloud app deploy --version v3 --migrate
+gcloud app services set-traffic splits=v3=.5,v2=.5 //by IP
+gcloud app services set-traffic --splits=v3=.5,v2=.5 --split-by=random
+gcloud app services set-traffic --splits=v3=.5,v2=.5 --split-by=cookie
+watch curl AppEngineLink
+gcloud app open-console --version=v1
+gcloud app versions list --hide-no-traffic
+gcloud app services list
+gcloud app versions list
+gcloud app instances list
+gcloud app logs tail
+gcloud app instances delete instanceID --service=default --version=v1
+gcloud app instances shh --service=default --version=v1
+gcloud app instances scp --service=default --version=v1 --recurse local_dir i1:remote_dir (flexible-copy files)
